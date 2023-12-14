@@ -31,11 +31,12 @@ pub extern "C" fn str2str(ptr: *const c_char) -> *const c_char {
 }
 
 #[no_mangle]
-pub extern "C" fn list2List(array: &[u8], length: usize) -> *const u8 {
+pub extern "C" fn list2List(array: *const u8, length: usize) -> *const u8 {
     for i in 0..length {
-        println!("array[{}] = {}", i, array[i]);
+        let item = unsafe { *array.offset(i as isize) };
+        println!("array[{}] = {}", i, item);
     }
-    array.as_ptr()
+    array
 }
 
 #[repr(C)]
