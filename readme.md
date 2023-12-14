@@ -2,7 +2,7 @@
 
 1、**cargo build**，在rust项目，target目录下生成 .so(linux) 或 .dylib(mac) 文件。
 
-2、拷贝该文件至flutter项目下，安装依赖，dart pub add ffi。
+2、拷贝该文件至dart项目下，安装依赖，dart pub add ffi。
 
 3、**读取动态链接库**，final ffi.DynamicLibrary dylib = ffi.DynamicLibrary.open('./rust_so/libcasher.so'); 。
 
