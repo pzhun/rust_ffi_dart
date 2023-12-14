@@ -43,10 +43,9 @@ final class Person extends ffi.Struct {
   external Address address;
 }
 
+final ffi.DynamicLibrary dyLib =
+    ffi.DynamicLibrary.open('./dart_ffi/rust_lib/libcasher.so');
 void ffi_test() {
-  final ffi.DynamicLibrary dyLib =
-      ffi.DynamicLibrary.open('./flutter_ffi/rust_lib/libcasher.so');
-
   const String file_name = 'test_rust_ffi';
 
   // Convert a Dart [String] to a Utf8-encoded null-terminated C string.
@@ -118,8 +117,6 @@ void ffi_test() {
 }
 
 void ffigen_Test() {
-  final ffi.DynamicLibrary dyLib =
-      ffi.DynamicLibrary.open('./flutter_ffi/rust_lib/libcasher.so');
   final ffigen = NativeLibrary(dyLib);
   print(ffigen.numbers_add(10, 20));
 }

@@ -1,4 +1,4 @@
-import 'package:flutter_ffi/flutter_ffi.dart';
+import 'package:flutter_ffi/dart_ffi.dart';
 import 'package:test/test.dart';
 
 void main() {
